@@ -32,10 +32,10 @@ class PostsController extends Controller
         $posts= $this->model->getDataCollection();
         $data['posts'] =   $posts->map(function ($item, $key) use($users) {
             return [
-                'id'            => $item->id,
-                'title'         => $item->title,
+                'id'           => $item->id,
+                'title'        => $item->title,
                 'body'         => $item->body,
-                'user'     => $users->firstWhere('id', $item->userId),
+                'user'         => $users->firstWhere('id', $item->userId),
             ];
            
         })->all();
@@ -51,8 +51,8 @@ class PostsController extends Controller
             return [
                 'id'            => $item->id,
                 'title'         => $item->title,
-                'body'         => $item->body,
-                'comments'     => $comments->where('postId', $item->id),
+                'body'          => $item->body,
+                'comments'      => $comments->where('postId', $item->id),
             ];   
         })->all();
 

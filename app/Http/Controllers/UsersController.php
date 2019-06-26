@@ -27,14 +27,14 @@ class UsersController extends Controller
         $data['users'] =   $users->map(function ($item, $key) use($posts) {
             return [
                 'id'            => $item->id,
-                'name' => $item->name,
-                'username' => $item->username,
-                'email' => $item->email,
-                'address' => $item->address,
-                'phone' => $item->phone,
-                'website' => $item->website,
-                'company' => $item->company, 
-                'posts'     => $posts->Where('userId', $item->id),
+                'name'          => $item->name,
+                'username'      => $item->username,
+                'email'         => $item->email,
+                'address'       => $item->address,
+                'phone'         => $item->phone,
+                'website'       => $item->website,
+                'company'       => $item->company, 
+                'posts'         => $posts->Where('userId', $item->id),
             ];
            
         })->all();

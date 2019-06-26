@@ -20,4 +20,8 @@ Route::get('/posts', 'PostsController@index');
 Route::get('/posts/user/{id}', 'PostsController@getPostsByUserId');
 Route::get('/posts-with-user', 'PostsController@getPostsWithUser');
 Route::get('/posts-with-comments', 'PostsController@getPostsWithComments');
+Route::get('/posts-with-comments', 'PostsController@getPostsWithComments');
 Route::get('/comments', 'CommentsController@index');
+Route::get('/comments-with-post', 'CommentsController@getCommentsWithPost');
+Route::get('/comments-with-post-user', 'CommentsController@getCommentsWithPostAndUser');
+
