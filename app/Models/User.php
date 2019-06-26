@@ -9,19 +9,13 @@ class User extends Model  implements
       Interfaces\DataInterface
 {
    
-  public function getData()
+  public function getDataCollection()
   {
        return  \Cache::remember('users', 160, function()
         {
-            return  json_decode(file_get_contents('http://jsonplaceholder.typicode.com/users'));
+            return  collect(json_decode(file_get_contents('http://jsonplaceholder.typicode.com/users')));
             
         });
-   
-  }
-
-  public function getDataCollection()
-  {
-            return  collect($this->getData());
    
   }
 }

@@ -7,19 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model implements interfaces\DataInterface
 {
     
-    public function getData()
+    public function getDataCollection()
     {
          return  \Cache::remember('posts', 160, function()
           {
-              return  json_decode(file_get_contents('http://jsonplaceholder.typicode.com/posts'));
+              return  collect(json_decode(file_get_contents('http://jsonplaceholder.typicode.com/posts')));
               
           });
      
     }
 
-    public function getDataCollection()
-  {
-            return  collect($this->getData());
-   
-  }
+
 }
