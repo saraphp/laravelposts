@@ -10,7 +10,8 @@ class CommentsController extends Controller
         $this->model = $model;
     }
 
-    public function index(){
+    public function index()
+    {
         $data['comments'] = $this->model->getDataCollection();
         return $data['comments'];
         //return \App\Http\Resources\CommentResource::collection($data['comments']);

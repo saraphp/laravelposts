@@ -5,7 +5,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model  implements interfaces\DataInterface
+class User extends Model  implements 
+      Interfaces\DataInterface
 {
    
   public function getData()
