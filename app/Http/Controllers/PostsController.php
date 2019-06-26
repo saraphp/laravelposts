@@ -11,6 +11,7 @@ class PostsController extends Controller
     {
         $this->model = $model;
         $this->User = new \App\Models\User;
+        $this->Comment = new \App\Models\Comment;   
     }
 
     public function index()
@@ -40,5 +41,22 @@ class PostsController extends Controller
         })->all();
 
         return $data['posts'];    
+    }
+
+    public function getPostsWithComments()
+    {
+        $comments= $this->Comment->getDataCollection();
+        $posts= $this->model->getDataCollection();
+        $data['posts'] = $posts->map(function ($item, $key) use($comments) {
+            return [
+                'id'            => $item->id,
+                'title'         => $item->title,
+                'body'         => $item->body,
+                'comments'     => $comments->where('postId', $item->id),
+            ];   
+        })->all();
+
+       return  $data['posts'];
+        
     }
 }

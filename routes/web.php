@@ -19,4 +19,5 @@ Route::get('/users-with-posts', 'UsersController@getUsersWithPosts');
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/user/{id}', 'PostsController@getPostsByUserId');
 Route::get('/posts-with-user', 'PostsController@getPostsWithUser');
+Route::get('/posts-with-comments', 'PostsController@getPostsWithComments');
 Route::get('/comments', 'CommentsController@index');
